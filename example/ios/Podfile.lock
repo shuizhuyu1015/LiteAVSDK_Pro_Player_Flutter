@@ -1,0 +1,29 @@
+PODS:
+  - Flutter (1.0.0)
+  - ftxplayer (0.0.1):
+    - Flutter
+    - TXLiteAVSDK_Professional
+  - TXLiteAVSDK_Professional (7.8.9518)
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - ftxplayer (from `.symlinks/plugins/ftxplayer/ios`)
+
+SPEC REPOS:
+  trunk:
+    - TXLiteAVSDK_Professional
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  ftxplayer:
+    :path: ".symlinks/plugins/ftxplayer/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  ftxplayer: 0e36cb223d6655dbceb1560fb291352cb4d6164f
+  TXLiteAVSDK_Professional: be9ec645e25536c4dcd5f537c37605c673dd19d5
+
+PODFILE CHECKSUM: 7fb83752f59ead6285236625b82473f90b1cb932
+
+COCOAPODS: 1.10.0.beta.2
