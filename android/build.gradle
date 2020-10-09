@@ -34,15 +34,8 @@ android {
     lintOptions {
         disable 'InvalidPackage'
     }
-
-    sourceSets {
-        main{
-            jniLibs.srcDirs = ["libs"]
-        }
-    }
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/liteavsdk.jar')
+    implementation 'com.tencent.liteav:LiteAVSDK_Professional:latest.release'
 }
