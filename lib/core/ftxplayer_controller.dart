@@ -186,8 +186,7 @@ class FTXPlayerController extends ChangeNotifier implements ValueListenable<FtxV
   Future<void> setRenderMode(RenderMode mode) async {
     if(_isNeedDisposed) return;
     await _initPlayer.future;
-    print('设置裁剪模式！！！！');
-    await _channel.invokeMethod("setRenderMode", {"mode": mode});
+    await _channel.invokeMethod("setRenderMode", {"mode": mode.index});
   }
 
   Future<void> _release() async {
