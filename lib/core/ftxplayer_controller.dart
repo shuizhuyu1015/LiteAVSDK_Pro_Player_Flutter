@@ -189,6 +189,20 @@ class FTXPlayerController extends ChangeNotifier implements ValueListenable<FtxV
     await _channel.invokeMethod("setRenderMode", {"mode": mode.index});
   }
 
+  Future<int> videoWidth() async {
+    if(_isNeedDisposed) return 0;
+    await _initPlayer.future;
+    int width = await _channel.invokeMethod("videoWidth");
+    return width;
+  }
+
+  Future<int> videoHeight() async {
+    if(_isNeedDisposed) return 0;
+    await _initPlayer.future;
+    int height = await _channel.invokeMethod("videoHeight");
+    return height;
+  }
+
   Future<void> _release() async {
     await _initPlayer.future;
     await FTXPlayerPlugin._releasePlayer(_playerId);

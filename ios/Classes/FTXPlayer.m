@@ -124,6 +124,12 @@ static const int uninitialized = -1;
         int mode = [args[@"mode"] intValue];
         [self setRenderMode:mode];
         result(nil);
+    }else if([@"videoWidth" isEqualToString:call.method]) {
+        int videoWidth = [self getVideoWidth];
+        result(@(videoWidth));
+    }else if([@"videoHeight" isEqualToString:call.method]) {
+        int videoHeight = [self getVideoHeight];
+        result(@(videoHeight));
     }
     else {
       result(FlutterMethodNotImplemented);
@@ -312,6 +318,20 @@ static const int uninitialized = -1;
     }else if(_txLivePlayer != nil) {
         [_txLivePlayer setRenderMode:renderMode];
     }
+}
+
+-(int)getVideoWidth {
+    if (_txVodPlayer != nil) {
+        return _txVodPlayer.width;
+    }
+    return 0;
+}
+
+-(int)getVideoHeight {
+    if (_txVodPlayer != nil) {
+        return _txVodPlayer.height;
+    }
+    return 0;
 }
 
 /**
