@@ -121,7 +121,6 @@ static const int uninitialized = -1;
         [self setLoop:loop];
         result(nil);
     }else if([@"setRenderMode" isEqualToString:call.method]) {
-        NSLog(@"设置裁剪模式");
         int mode = [args[@"mode"] intValue];
         [self setRenderMode:mode];
         result(nil);
@@ -309,7 +308,6 @@ static const int uninitialized = -1;
 -(void)setRenderMode:(int)mode {
     TX_Enum_Type_RenderMode renderMode = mode == 1 ? RENDER_MODE_FILL_EDGE : RENDER_MODE_FILL_SCREEN;
     if (_txVodPlayer != nil) {
-        NSLog(@"设置裁剪模式：%@", @(mode));
         [_txVodPlayer setRenderMode:renderMode];
     }else if(_txLivePlayer != nil) {
         [_txLivePlayer setRenderMode:renderMode];
