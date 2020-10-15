@@ -104,7 +104,14 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
             boolean loop = call.argument("loop");
             setLoop(loop);
             result.success(null);
-        }else {
+        }else if (call.method.equals("videoWidth")) {
+            int videoWidth = getVideoWidth();
+            result.success(videoWidth);
+        }else if (call.method.equals("videoHeight")) {
+            int videoHeight = getVideoHeight();
+            result.success(videoHeight);
+        }
+        else {
             result.notImplemented();
         }
     }
@@ -262,6 +269,20 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
         if (mVodPlayer != null){
             mVodPlayer.setLoop(loop);
         }
+    }
+
+    int getVideoWidth() {
+        if (mVodPlayer != null) {
+            return mVodPlayer.width;
+        }
+        return 0;
+    }
+
+    int getVideoHeight() {
+        if (mVodPlayer != null) {
+            return mVodPlayer.height;
+        }
+        return 0;
     }
 
     void setConfig() {
