@@ -104,14 +104,13 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
             boolean loop = call.argument("loop");
             setLoop(loop);
             result.success(null);
-        }else if (call.method.equals("videoWidth")) {
+        } else if (call.method.equals("videoWidth")) {
             int videoWidth = getVideoWidth();
             result.success(videoWidth);
-        }else if (call.method.equals("videoHeight")) {
+        } else if (call.method.equals("videoHeight")) {
             int videoHeight = getVideoHeight();
             result.success(videoHeight);
-        }
-        else {
+        } else {
             result.notImplemented();
         }
     }
@@ -143,7 +142,7 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
 
             if (mLivePlayer != null) {
                 mLivePlayer.setSurface(mSurface);
-                mLivePlayer.setSurfaceSize(1024,576);
+                mLivePlayer.setSurfaceSize(1024, 576);
                 mLivePlayer.enableHardwareDecode(true);
             }
 
@@ -182,7 +181,7 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
     }
 
     void setLiveMode(int type) {
-        if (mLivePlayConfig ==null) mLivePlayConfig = new TXLivePlayConfig();
+        if (mLivePlayConfig == null) mLivePlayConfig = new TXLivePlayConfig();
         if (type == 0) {
             //自动模式
             mLivePlayConfig.setAutoAdjustCacheTime(true);
@@ -200,7 +199,7 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
             mLivePlayConfig.setMaxAutoAdjustCacheTime(5);
         }
 
-        if (mLivePlayer != null){
+        if (mLivePlayer != null) {
             mLivePlayer.setConfig(mLivePlayConfig);
         }
     }
@@ -265,22 +264,22 @@ public class FTXPlayer implements MethodChannel.MethodCallHandler, ITXLivePlayLi
         }
     }
 
-    void setLoop(boolean loop){
-        if (mVodPlayer != null){
+    void setLoop(boolean loop) {
+        if (mVodPlayer != null) {
             mVodPlayer.setLoop(loop);
         }
     }
 
     int getVideoWidth() {
         if (mVodPlayer != null) {
-            return mVodPlayer.width;
+            return mVodPlayer.getWidth();
         }
         return 0;
     }
 
     int getVideoHeight() {
         if (mVodPlayer != null) {
-            return mVodPlayer.height;
+            return mVodPlayer.getHeight();
         }
         return 0;
     }
